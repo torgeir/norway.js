@@ -1,0 +1,15 @@
+$ = sel => document.querySelectorAll(sel);
+
+mixin = (what, where) => {
+  for(var key in what)
+    where[key] = what[key];
+}
+
+Array.prototype.randomize = function () {
+  return this.sort(() => .5 - Math.random());
+};
+
+Array.prototype.first = function () {
+  return this[0];
+};
+

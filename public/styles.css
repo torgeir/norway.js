@@ -1,0 +1,6 @@
+body{margin:0;padding:0}
+#fylker path{cursor:pointer;fill:transparent;stroke-width:1px;stroke:#333}#fylker path:hover{fill:#555}
+#fylker path:active{fill:#333;transition: fill 1s;}
+#fylker path.correct{fill:green;}
+#fylker path.fail{fill:red}
+#valgt-fylke{text-align:center}

@@ -1,0 +1,73 @@
+var key = 'fylker-attempts';
+var attempts = localStorage.getItem(key);
+localStorage.setItem(key, (attempts && +attempts+1) || 1);
+
+var timeLoad = new Date();
+
+var body = document.body;
+
+var svg = d3
+  .select('body')
+  .append('svg:svg')
+  .attr('width',  body.clientWidth)
+  .attr('height', body.clientHeight);
+
+var projection = d3.geo
+  .albers()
+  .origin([12, 65])
+  .parallels([60.0, 68.0])
+  .scale(body.clientHeight * 3.7)
+  .translate([1/2.5 * body.clientWidth,
+              1/2.2 * body.clientHeight]);
+
+var path = d3.geo
+  .path()
+  .projection(projection);
+
+var countiesSvg = svg
+  .append('svg:g')
+  .attr('id', 'fylker');
+
+var norge = new Country(countiesSvg, path, 'fylker.json');
+
+var done = false;
+
+norge.on('load', () => {
+  var counties = norge.counties();
+
+  var questions = counties.randomize();
+  var expected = ask(questions);
+
+  norge.on('selected', county => {
+    var correct = (county.id === expected.id);
+    norge.addClass(county, correct ? 'correct' : 'fail');
+
+    if (questions.length > 1) {
+      questions = questions.slice(1);
+      expected = ask(questions);
+    }
+    else {
+      if (done)
+        return
+      done = true;
+
+      var numberOfCorrects = norge.numberOfCorrects();
+      var timeSpent = (new Date() - timeLoad) / 1000;
+      var winner = (numberOfCorrects === counties.length);
+
+      _gaq.push(['_trackEvent', 'norway', 'fylker', winner ? 'winner' : 'looser', +localStorage.getItem(key)]);
+      _gaq.push(['_trackEvent', 'norway', 'fylker', 'score', numberOfCorrects]);
+      _gaq.push(['_trackEvent', 'norway', 'fylker', 'time spent', parseInt(timeSpent, 10)]);
+
+      alert(winner ? "You won!" : "You got " + numberOfCorrects + " of " + counties.length);
+    }
+  });
+});
+
+var countyEls = $('#valgt-fylke')[0];
+function ask (questions) {
+  var expected = questions.first();
+  countyEls.innerText = `Velg ${expected.name} fylke`;
+  return expected;
+}
+

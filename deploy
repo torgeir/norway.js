@@ -1,0 +1,3 @@
+./compile
+scp -r www/* wa.gd:~/public/fylker/
+echo "done"
