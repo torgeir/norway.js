@@ -9,5 +9,16 @@ module.exports = {
   output: {
     path: __dirname + '/dist', // `dist` is the destination
     filename: '[name].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: [{
+          loader: 'babel-loader',
+          options: { presets: ['es2015'] }
+        }]
+      }
+    ]
   }
 };
