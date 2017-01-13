@@ -1,6 +1,6 @@
 {
   "name": "norway.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An svg map of norway. Shows clickable counties or municipalities.",
   "main": "src/norway.js",
   "dependencies": {

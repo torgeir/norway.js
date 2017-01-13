@@ -1,3 +1,0 @@
-npm run build
-scp -r dist/* wa.gd:~/public/fylker/
-echo "done"
