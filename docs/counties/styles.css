@@ -1,0 +1,9 @@
+html{height: 100%;}
+body{height: 100%;margin:0 0 0 0;padding:0}
+#map{margin:0 auto;}
+#areas path{cursor:pointer;fill:transparent;stroke-width:1px;stroke:#333}
+#areas path:hover{fill:#fa0;transition: fill 0.2s;}
+#areas path:active{fill:#fefefe;transition: fill 0.1s;}
+#areas path.correct{fill:green;transition: fill 0.3s;}
+#areas path.fail{fill:red;transition: fill 0.3s;}
+#valgt{position:absolute;top:2rem;left:4rem;font-size:2rem;text-align:center}

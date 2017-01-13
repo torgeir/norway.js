@@ -1,30 +1,12 @@
 # norway.js
 
+A d3 svg map of norway's counties and municipalities. Clickable areas that trigger events when clicked. Easily add classes to the selected area.
+
 ## install
 
-You need a fork of terraform, to make compiling traceur work with harp
+`npm install norway.js`
 
-    git clone git@github.com:torgeir/terraform.git
-    cd terraform
-    npm link
+## examples
 
-All set; clone, link in the fork of terraform, run
-
-    git clone git@github.com:torgeir/norway.js.git
-    cd norway.js
-    mkdir node_modules
-    npm install harp
-    rm -r node_modules/harp/node_modules/terraform
-    cd node_modules/harp/node_modules
-    npm link terraform
-    rm -r terraform/test # yeah, I know, but it has invalid json testdata that harp reads, and fails
-    cd ../../..
-
-## run
-
-    cd public
-    ../node_modules/.bin/harp server
-
-## compiling
-
-    ./compile
+- [Show counties](http://torgeir.github.io/norway.js/counties/index.html)
+- [Show municipalities](http://torgeir.github.io/norway.js/municipalities/index.html)
