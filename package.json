@@ -1,0 +1,35 @@
+{
+  "name": "norway.js",
+  "version": "1.0.0",
+  "description": "An svg map of norway. Shows clickable counties or municipalities.",
+  "main": "src/norway.js",
+  "dependencies": {
+    "d3": "^4.4.1",
+    "d3-geo": "^1.4.0",
+    "d3-geo-projection": "^1.2.1"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.0-rc.4"
+  },
+  "scripts": {
+    "build": "webpack && npm run copy-to-example",
+    "copy-to-example": "cp dist/example.js example/example.build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torgeir/norway.js.git"
+  },
+  "keywords": [
+    "norway",
+    "svg",
+    "map",
+    "fylker",
+    "kommuner"
+  ],
+  "author": "@torgeir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/torgeir/norway.js/issues"
+  },
+  "homepage": "https://github.com/torgeir/norway.js#readme"
+}

@@ -1,4 +1,5 @@
-class Events {
+export default class Events {
+
   constructor () {
     this.listeners = {};
     this.emit = function (ev, data) {
@@ -18,7 +19,7 @@ class Events {
         this.listeners = {};
     };
   }
-};
+}
 
 // tests
 //var log = function (what) { return function () { console.log(what); }; };
@@ -37,7 +38,7 @@ class Events {
 //one.emit('event'); //
 
 //var log5,
-    //two = events();
+//two = events();
 
 //two.on('event', log(4));
 //two.on('event', (log5 = log(5)));
